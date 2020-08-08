@@ -1,0 +1,46 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>select | Nushell</title><meta name=description content="This command displays only the column names passed on to it.
+Examples > ls ━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━┯━━━━━━━━━━┯━━━━━━━━┯━━━━━━━━━━━━━┯━━━━━━━━━━━━━┯━━━━━━━━━━━━━ # │ name │ type │ readonly │ size │ created │ accessed │ modified ───┼────────────────────────────┼──────┼──────────┼────────┼─────────────┼─────────────┼───────────── 0 │ zeusiscrazy.txt │ File │ │ 556 B │ a month ago │ a month ago │ a month ago 1 │ coww.txt │ File │ │ 24 B │ a month ago │ a month ago │ a month ago 2 │ randomweirdstuff."><link rel=canonical href=http://example.org/docs/commands/select/><link rel=stylesheet href=http://example.org/sass/main.css><meta property="og:title" content="select"><meta property="og:description" content="This command displays only the column names passed on to it.
+Examples > ls ━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━┯━━━━━━━━━━┯━━━━━━━━┯━━━━━━━━━━━━━┯━━━━━━━━━━━━━┯━━━━━━━━━━━━━ # │ name │ type │ readonly │ size │ created │ accessed │ modified ───┼────────────────────────────┼──────┼──────────┼────────┼─────────────┼─────────────┼───────────── 0 │ zeusiscrazy.txt │ File │ │ 556 B │ a month ago │ a month ago │ a month ago 1 │ coww.txt │ File │ │ 24 B │ a month ago │ a month ago │ a month ago 2 │ randomweirdstuff."><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/docs/commands/select/"><meta name=twitter:card content="summary"><meta name=twitter:title content="select"><meta name=twitter:description content="This command displays only the column names passed on to it.
+Examples > ls ━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━┯━━━━━━━━━━┯━━━━━━━━┯━━━━━━━━━━━━━┯━━━━━━━━━━━━━┯━━━━━━━━━━━━━ # │ name │ type │ readonly │ size │ created │ accessed │ modified ───┼────────────────────────────┼──────┼──────────┼────────┼─────────────┼─────────────┼───────────── 0 │ zeusiscrazy.txt │ File │ │ 556 B │ a month ago │ a month ago │ a month ago 1 │ coww.txt │ File │ │ 24 B │ a month ago │ a month ago │ a month ago 2 │ randomweirdstuff."><script src=https://unpkg.com/quicklink@2.0.0/dist/quicklink.umd.js></script><script defer>quicklink.listen()</script></head><body><header class=nu-top-app-bar><div class=nu-top-app-bar__row><div class="nu-top-app-bar__section nu-top-app-bar__section--start"><span class=h1-minor><span class=nu-logo-green>nu</span><span class=nu-logo-black>shell</span></span></div><div class="nu-top-app-bar__section nu-top-app-bar__section--end"><a href=/ class="nu-top-app-bar__link h1-minor-minor"><span>home</span></a>
+<a href=/docs class="nu-top-app-bar__link h1-minor-minor"><span>docs</span></a>
+<a href=https://github.com/nushell/nushell class="nu-top-app-bar__link h1-minor-minor"><span>github</span></a></div></div></header><main class=nu-content><h2>select</h2><p>This command displays only the column names passed on to it.</p><h2 id=examples>Examples</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; ls
+━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━┯━━━━━━━━━━┯━━━━━━━━┯━━━━━━━━━━━━━┯━━━━━━━━━━━━━┯━━━━━━━━━━━━━
+ <span style=color:#75715e># │ name                       │ type │ readonly │ size   │ created     │ accessed    │ modified</span>
+───┼────────────────────────────┼──────┼──────────┼────────┼─────────────┼─────────────┼─────────────
+ <span style=color:#ae81ff>0</span> │ zeusiscrazy.txt            │ File │          │ <span style=color:#ae81ff>556</span> B  │ a month ago │ a month ago │ a month ago
+ <span style=color:#ae81ff>1</span> │ coww.txt                   │ File │          │  <span style=color:#ae81ff>24</span> B  │ a month ago │ a month ago │ a month ago
+ <span style=color:#ae81ff>2</span> │ randomweirdstuff.txt       │ File │          │ <span style=color:#ae81ff>197</span> B  │ a month ago │ a month ago │ a month ago
+ <span style=color:#ae81ff>3</span> │ abaracadabra.txt           │ File │          │ <span style=color:#ae81ff>401</span> B  │ a month ago │ a month ago │ a month ago
+ <span style=color:#ae81ff>4</span> │ youshouldeatmorecereal.txt │ File │          │ <span style=color:#ae81ff>768</span> B  │ a month ago │ a month ago │ a month ago
+━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━┷━━━━━━━━━━┷━━━━━━━━┷━━━━━━━━━━━━━┷━━━━━━━━━━━━━┷━━━━━━━━━━━━━
+&gt; ls | <span style=color:#66d9ef>select</span> name
+━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ <span style=color:#75715e># │ name</span>
+───┼────────────────────────────
+ <span style=color:#ae81ff>0</span> │ zeusiscrazy.txt
+ <span style=color:#ae81ff>1</span> │ coww.txt
+ <span style=color:#ae81ff>2</span> │ randomweirdstuff.txt
+ <span style=color:#ae81ff>3</span> │ abaracadabra.txt
+ <span style=color:#ae81ff>4</span> │ youshouldeatmorecereal.txt
+━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</code></pre></div><p>The order in which you put the column names matters:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; ls | <span style=color:#66d9ef>select</span> type name size
+━━━┯━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━
+ <span style=color:#75715e># │ type │ name                       │ size</span>
+───┼──────┼────────────────────────────┼────────
+ <span style=color:#ae81ff>0</span> │ File │ zeusiscrazy.txt            │ <span style=color:#ae81ff>556</span> B
+ <span style=color:#ae81ff>1</span> │ File │ coww.txt                   │  <span style=color:#ae81ff>24</span> B
+ <span style=color:#ae81ff>2</span> │ File │ randomweirdstuff.txt       │ <span style=color:#ae81ff>197</span> B
+ <span style=color:#ae81ff>3</span> │ File │ abaracadabra.txt           │ <span style=color:#ae81ff>401</span> B
+ <span style=color:#ae81ff>4</span> │ File │ youshouldeatmorecereal.txt │ <span style=color:#ae81ff>768</span> B
+━━━┷━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━
+&gt; ls | <span style=color:#66d9ef>select</span> size type name
+━━━┯━━━━━━━━┯━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ <span style=color:#75715e># │ size   │ type │ name</span>
+───┼────────┼──────┼────────────────────────────
+ <span style=color:#ae81ff>0</span> │ <span style=color:#ae81ff>556</span> B  │ File │ zeusiscrazy.txt
+ <span style=color:#ae81ff>1</span> │  <span style=color:#ae81ff>24</span> B  │ File │ coww.txt
+ <span style=color:#ae81ff>2</span> │ <span style=color:#ae81ff>197</span> B  │ File │ randomweirdstuff.txt
+ <span style=color:#ae81ff>3</span> │ <span style=color:#ae81ff>401</span> B  │ File │ abaracadabra.txt
+ <span style=color:#ae81ff>4</span> │ <span style=color:#ae81ff>768</span> B  │ File │ youshouldeatmorecereal.txt
+━━━┷━━━━━━━━┷━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</code></pre></div></main></body></html>

@@ -1,0 +1,44 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>enter | Nushell</title><meta name=description content="This command creates a new shell and begin at this path.
+Examples /home/foobar> cat user.json { &#34;Name&#34;: &#34;Peter&#34;, &#34;Age&#34;: 30, &#34;Telephone&#34;: 88204828, &#34;Country&#34;: &#34;Singapore&#34; } /home/foobar> enter user.json /> ls ━━━━━━━┯━━━━━┯━━━━━━━━━━━┯━━━━━━━━━━━ Name │ Age │ Telephone │ Country ───────┼─────┼───────────┼─────────── Peter │ 30 │ 88204828 │ Singapore ━━━━━━━┷━━━━━┷━━━━━━━━━━━┷━━━━━━━━━━━ /> exit /home/foobar> It also provides the ability to work with multiple directories at the same time. This command will allow you to create a new &ldquo;shell&rdquo; and enter it at the specified path."><link rel=canonical href=http://example.org/docs/commands/enter/><link rel=stylesheet href=http://example.org/sass/main.css><meta property="og:title" content="enter"><meta property="og:description" content="This command creates a new shell and begin at this path.
+Examples /home/foobar> cat user.json { &#34;Name&#34;: &#34;Peter&#34;, &#34;Age&#34;: 30, &#34;Telephone&#34;: 88204828, &#34;Country&#34;: &#34;Singapore&#34; } /home/foobar> enter user.json /> ls ━━━━━━━┯━━━━━┯━━━━━━━━━━━┯━━━━━━━━━━━ Name │ Age │ Telephone │ Country ───────┼─────┼───────────┼─────────── Peter │ 30 │ 88204828 │ Singapore ━━━━━━━┷━━━━━┷━━━━━━━━━━━┷━━━━━━━━━━━ /> exit /home/foobar> It also provides the ability to work with multiple directories at the same time. This command will allow you to create a new &ldquo;shell&rdquo; and enter it at the specified path."><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/docs/commands/enter/"><meta name=twitter:card content="summary"><meta name=twitter:title content="enter"><meta name=twitter:description content="This command creates a new shell and begin at this path.
+Examples /home/foobar> cat user.json { &#34;Name&#34;: &#34;Peter&#34;, &#34;Age&#34;: 30, &#34;Telephone&#34;: 88204828, &#34;Country&#34;: &#34;Singapore&#34; } /home/foobar> enter user.json /> ls ━━━━━━━┯━━━━━┯━━━━━━━━━━━┯━━━━━━━━━━━ Name │ Age │ Telephone │ Country ───────┼─────┼───────────┼─────────── Peter │ 30 │ 88204828 │ Singapore ━━━━━━━┷━━━━━┷━━━━━━━━━━━┷━━━━━━━━━━━ /> exit /home/foobar> It also provides the ability to work with multiple directories at the same time. This command will allow you to create a new &ldquo;shell&rdquo; and enter it at the specified path."><script src=https://unpkg.com/quicklink@2.0.0/dist/quicklink.umd.js></script><script defer>quicklink.listen()</script></head><body><header class=nu-top-app-bar><div class=nu-top-app-bar__row><div class="nu-top-app-bar__section nu-top-app-bar__section--start"><span class=h1-minor><span class=nu-logo-green>nu</span><span class=nu-logo-black>shell</span></span></div><div class="nu-top-app-bar__section nu-top-app-bar__section--end"><a href=/ class="nu-top-app-bar__link h1-minor-minor"><span>home</span></a>
+<a href=/docs class="nu-top-app-bar__link h1-minor-minor"><span>docs</span></a>
+<a href=https://github.com/nushell/nushell class="nu-top-app-bar__link h1-minor-minor"><span>github</span></a></div></div></header><main class=nu-content><h2>enter</h2><p>This command creates a new shell and begin at this path.</p><h2 id=examples>Examples</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>/home/foobar&gt; cat user.json
+<span style=color:#f92672>{</span>
+	<span style=color:#e6db74>&#34;Name&#34;</span>: <span style=color:#e6db74>&#34;Peter&#34;</span>,
+	<span style=color:#e6db74>&#34;Age&#34;</span>: 30,
+	<span style=color:#e6db74>&#34;Telephone&#34;</span>: 88204828,
+	<span style=color:#e6db74>&#34;Country&#34;</span>: <span style=color:#e6db74>&#34;Singapore&#34;</span>
+<span style=color:#f92672>}</span>
+/home/foobar&gt; enter user.json
+/&gt; ls
+━━━━━━━┯━━━━━┯━━━━━━━━━━━┯━━━━━━━━━━━
+ Name  │ Age │ Telephone │ Country
+───────┼─────┼───────────┼───────────
+ Peter │  <span style=color:#ae81ff>30</span> │  <span style=color:#ae81ff>88204828</span> │ Singapore
+━━━━━━━┷━━━━━┷━━━━━━━━━━━┷━━━━━━━━━━━
+/&gt; exit
+/home/foobar&gt;
+</code></pre></div><p>It also provides the ability to work with multiple directories at the same time. This command will allow you to create a new &ldquo;shell&rdquo; and enter it at the specified path. You can toggle between this new shell and the original shell with the <code>p</code> (for previous) and <code>n</code> (for next), allowing you to navigate around a ring buffer of shells. Once you&rsquo;re done with a shell, you can <code>exit</code> it and remove it from the ring buffer.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>/&gt; enter /tmp
+/tmp&gt; enter /usr
+/usr&gt; enter /bin
+/bin&gt; enter /opt
+/opt&gt; p
+/bin&gt; p
+/usr&gt; p
+/tmp&gt; p
+/&gt; n
+/tmp&gt;
+</code></pre></div><h2 id=note>Note</h2><p>If you <code>enter</code> a JSON file with multiple a top-level list, this will open one new shell for each list element.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>/private/tmp&gt; printf <span style=color:#e6db74>&#34;1\\n2\\n3\\n&#34;</span> | lines | save foo.json
+/private/tmp&gt; enter foo.json
+/&gt; shells
+───┬────────┬─────────────────────────┬──────────────
+ <span style=color:#75715e># │ active │ name                    │ path</span>
+───┼────────┼─────────────────────────┼──────────────
+ <span style=color:#ae81ff>0</span> │        │ filesystem              │ /private/tmp
+ <span style=color:#ae81ff>1</span> │        │ <span style=color:#f92672>{</span>/private/tmp/foo.json<span style=color:#f92672>}</span> │ /
+ <span style=color:#ae81ff>2</span> │        │ <span style=color:#f92672>{</span>/private/tmp/foo.json<span style=color:#f92672>}</span> │ /
+ <span style=color:#ae81ff>3</span> │ X      │ <span style=color:#f92672>{</span>/private/tmp/foo.json<span style=color:#f92672>}</span> │ /
+───┴────────┴─────────────────────────┴──────────────
+/&gt;
+</code></pre></div></main></body></html>

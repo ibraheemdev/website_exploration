@@ -1,0 +1,53 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>split-column | Nushell</title><meta name=description content="Split row contents across multiple columns via the separator.
+Syntax: split-column <separator> ...args{flags}
+Parameters  <separator>: string that denotes what separates columns args: column names to give the new columns. If not specified they will be set to Column1 Column2 &mldr;  Flags --collapse-empty Removes empty columns   Examples If we have file structured like this:
+0.12643678160919541 | 0.6851851851851852 | 0.273972602739726 0.28735632183908044 | 0.09259259259259259 | 0.6986301369863014 0.8045977011494253 | 0.8148148148148148 | 0."><link rel=canonical href=http://example.org/docs/commands/split-column/><link rel=stylesheet href=http://example.org/sass/main.css><meta property="og:title" content="split-column"><meta property="og:description" content="Split row contents across multiple columns via the separator.
+Syntax: split-column <separator> ...args{flags}
+Parameters  <separator>: string that denotes what separates columns args: column names to give the new columns. If not specified they will be set to Column1 Column2 &mldr;  Flags --collapse-empty Removes empty columns   Examples If we have file structured like this:
+0.12643678160919541 | 0.6851851851851852 | 0.273972602739726 0.28735632183908044 | 0.09259259259259259 | 0.6986301369863014 0.8045977011494253 | 0.8148148148148148 | 0."><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/docs/commands/split-column/"><meta name=twitter:card content="summary"><meta name=twitter:title content="split-column"><meta name=twitter:description content="Split row contents across multiple columns via the separator.
+Syntax: split-column <separator> ...args{flags}
+Parameters  <separator>: string that denotes what separates columns args: column names to give the new columns. If not specified they will be set to Column1 Column2 &mldr;  Flags --collapse-empty Removes empty columns   Examples If we have file structured like this:
+0.12643678160919541 | 0.6851851851851852 | 0.273972602739726 0.28735632183908044 | 0.09259259259259259 | 0.6986301369863014 0.8045977011494253 | 0.8148148148148148 | 0."><script src=https://unpkg.com/quicklink@2.0.0/dist/quicklink.umd.js></script><script defer>quicklink.listen()</script></head><body><header class=nu-top-app-bar><div class=nu-top-app-bar__row><div class="nu-top-app-bar__section nu-top-app-bar__section--start"><span class=h1-minor><span class=nu-logo-green>nu</span><span class=nu-logo-black>shell</span></span></div><div class="nu-top-app-bar__section nu-top-app-bar__section--end"><a href=/ class="nu-top-app-bar__link h1-minor-minor"><span>home</span></a>
+<a href=/docs class="nu-top-app-bar__link h1-minor-minor"><span>docs</span></a>
+<a href=https://github.com/nushell/nushell class="nu-top-app-bar__link h1-minor-minor"><span>github</span></a></div></div></header><main class=nu-content><h2>split-column</h2><p>Split row contents across multiple columns via the separator.</p><p>Syntax: <code>split-column &lt;separator> ...args{flags}</code></p><h2 id=parameters>Parameters</h2><ul><li><code>&lt;separator></code>: string that denotes what separates columns</li><li><code>args</code>: column names to give the new columns. If not specified they will be set to <code>Column1</code> <code>Column2</code> &mldr;</li></ul><h2 id=flags>Flags</h2><div class=nu-flag-definition><span class=nu-flag-definition__flags>--collapse-empty</span>
+<span class=nu-flag-definition__definition>Removes empty columns</span></div><h2 id=examples>Examples</h2><p>If we have file structured like this:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>0.12643678160919541 | 0.6851851851851852 | 0.273972602739726
+0.28735632183908044 | 0.09259259259259259 | 0.6986301369863014
+0.8045977011494253 | 0.8148148148148148 | 0.7397260273972602
+0.28735632183908044 | 0.09259259259259259 | 0.547945205479452
+0.6896551724137931 | 0.7037037037037037 | 1.2465753424657535
+0.6896551724137931 | 0.8333333333333334 | 0.4657534246575342
+0.9080459770114943 | 1.3333333333333333 | 0.4931506849315068
+0.9310344827586207 | 1.1296296296296295 | 0.7123287671232876
+0.3448275862068966 | 0.018518518518518517 | 0.6575342465753424
+1.0459770114942528 | 1.0925925925925926 | 0.6164383561643836
+</code></pre></div><p>We can build a table from it using the <code>split-column</code> command</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; open coordinates.txt | lines | split-column <span style=color:#e6db74>&#34; | &#34;</span>
+━━━┯━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━
+ <span style=color:#75715e># │ Column1             │ Column2              │ Column3</span>
+───┼─────────────────────┼──────────────────────┼────────────────────
+ <span style=color:#ae81ff>0</span> │ 0.12643678160919541 │ 0.6851851851851852   │ 0.273972602739726
+ <span style=color:#ae81ff>1</span> │ 0.28735632183908044 │ 0.09259259259259259  │ 0.6986301369863014
+ <span style=color:#ae81ff>2</span> │ 0.8045977011494253  │ 0.8148148148148148   │ 0.7397260273972602
+ <span style=color:#ae81ff>3</span> │ 0.28735632183908044 │ 0.09259259259259259  │ 0.547945205479452
+ <span style=color:#ae81ff>4</span> │ 0.6896551724137931  │ 0.7037037037037037   │ 1.2465753424657535
+ <span style=color:#ae81ff>5</span> │ 0.6896551724137931  │ 0.8333333333333334   │ 0.4657534246575342
+ <span style=color:#ae81ff>6</span> │ 0.9080459770114943  │ 1.3333333333333333   │ 0.4931506849315068
+ <span style=color:#ae81ff>7</span> │ 0.9310344827586207  │ 1.1296296296296295   │ 0.7123287671232876
+ <span style=color:#ae81ff>8</span> │ 0.3448275862068966  │ 0.018518518518518517 │ 0.6575342465753424
+ <span style=color:#ae81ff>9</span> │ 1.0459770114942528  │ 1.0925925925925926   │ 0.6164383561643836
+━━━┷━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━
+</code></pre></div><p>And give names to the columns</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; open coordinates.txt | lines | split-column <span style=color:#e6db74>&#34; | &#34;</span> x y z
+━━━┯━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━
+ <span style=color:#75715e># │ x                   │ y                    │ z</span>
+───┼─────────────────────┼──────────────────────┼────────────────────
+ <span style=color:#ae81ff>0</span> │ 0.12643678160919541 │ 0.6851851851851852   │ 0.273972602739726
+ <span style=color:#ae81ff>1</span> │ 0.28735632183908044 │ 0.09259259259259259  │ 0.6986301369863014
+ <span style=color:#ae81ff>2</span> │ 0.8045977011494253  │ 0.8148148148148148   │ 0.7397260273972602
+ <span style=color:#ae81ff>3</span> │ 0.28735632183908044 │ 0.09259259259259259  │ 0.547945205479452
+ <span style=color:#ae81ff>4</span> │ 0.6896551724137931  │ 0.7037037037037037   │ 1.2465753424657535
+ <span style=color:#ae81ff>5</span> │ 0.6896551724137931  │ 0.8333333333333334   │ 0.4657534246575342
+ <span style=color:#ae81ff>6</span> │ 0.9080459770114943  │ 1.3333333333333333   │ 0.4931506849315068
+ <span style=color:#ae81ff>7</span> │ 0.9310344827586207  │ 1.1296296296296295   │ 0.7123287671232876
+ <span style=color:#ae81ff>8</span> │ 0.3448275862068966  │ 0.018518518518518517 │ 0.6575342465753424
+ <span style=color:#ae81ff>9</span> │ 1.0459770114942528  │ 1.0925925925925926   │ 0.6164383561643836
+━━━┷━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━
+</code></pre></div></main></body></html>

@@ -1,0 +1,96 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>calc | Nushell</title><meta name=description content="calc is a command that takes a math expression from the pipeline and calculates that into a number.
+This command supports the following operations -
+operations :
+ binary operators: +, -, *, /, % (remainder), ^ (power) unary operators: +, -, ! (factorial)  functions :
+ sqrt, abs exp, ln, log10 sin, cos, tan, asin, acos, atan, atan2 sinh, cosh, tanh, asinh, acosh, atanh floor, ceil, round signum max(x, &mldr;), min(x, &mldr;): maximum and minimum of 1 or more numbers  constants:"><link rel=canonical href=http://example.org/docs/commands/calc/><link rel=stylesheet href=http://example.org/sass/main.css><meta property="og:title" content="calc"><meta property="og:description" content="calc is a command that takes a math expression from the pipeline and calculates that into a number.
+This command supports the following operations -
+operations :
+ binary operators: +, -, *, /, % (remainder), ^ (power) unary operators: +, -, ! (factorial)  functions :
+ sqrt, abs exp, ln, log10 sin, cos, tan, asin, acos, atan, atan2 sinh, cosh, tanh, asinh, acosh, atanh floor, ceil, round signum max(x, &mldr;), min(x, &mldr;): maximum and minimum of 1 or more numbers  constants:"><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/docs/commands/calc/"><meta name=twitter:card content="summary"><meta name=twitter:title content="calc"><meta name=twitter:description content="calc is a command that takes a math expression from the pipeline and calculates that into a number.
+This command supports the following operations -
+operations :
+ binary operators: +, -, *, /, % (remainder), ^ (power) unary operators: +, -, ! (factorial)  functions :
+ sqrt, abs exp, ln, log10 sin, cos, tan, asin, acos, atan, atan2 sinh, cosh, tanh, asinh, acosh, atanh floor, ceil, round signum max(x, &mldr;), min(x, &mldr;): maximum and minimum of 1 or more numbers  constants:"><script src=https://unpkg.com/quicklink@2.0.0/dist/quicklink.umd.js></script><script defer>quicklink.listen()</script></head><body><header class=nu-top-app-bar><div class=nu-top-app-bar__row><div class="nu-top-app-bar__section nu-top-app-bar__section--start"><span class=h1-minor><span class=nu-logo-green>nu</span><span class=nu-logo-black>shell</span></span></div><div class="nu-top-app-bar__section nu-top-app-bar__section--end"><a href=/ class="nu-top-app-bar__link h1-minor-minor"><span>home</span></a>
+<a href=/docs class="nu-top-app-bar__link h1-minor-minor"><span>docs</span></a>
+<a href=https://github.com/nushell/nushell class="nu-top-app-bar__link h1-minor-minor"><span>github</span></a></div></div></header><main class=nu-content><h2>calc</h2><p>calc is a command that takes a math expression from the pipeline and calculates that into a number.</p><p>This command supports the following operations -</p><p>operations :</p><ul><li>binary operators: +, -, *, /, % (remainder), ^ (power)</li><li>unary operators: +, -, ! (factorial)</li></ul><p>functions :</p><ul><li>sqrt, abs</li><li>exp, ln, log10</li><li>sin, cos, tan, asin, acos, atan, atan2</li><li>sinh, cosh, tanh, asinh, acosh, atanh</li><li>floor, ceil, round</li><li>signum</li><li>max(x, &mldr;), min(x, &mldr;): maximum and minimum of 1 or more numbers</li></ul><p>constants:</p><ul><li>pi</li><li>e</li></ul><h2 id=examples-->Examples -</h2><pre><code>&gt; echo &quot;1+2+3&quot; | calc
+6.000000000000000
+&gt; echo &quot;1-2+3&quot; | calc
+2.000000000000000
+&gt; echo &quot;-(-23)&quot; | calc
+23.00000000000000
+&gt; echo &quot;5^2&quot; | calc
+25.00000000000000
+&gt; echo &quot;5^3&quot; | calc
+125.0000000000000
+&gt; echo &quot;min(5,4,3,2,1,0,-100,45)&quot; | calc
+-100.0000000000000
+&gt; echo &quot;max(5,4,3,2,1,0,-100,45)&quot; | calc
+45.00000000000000
+&gt; echo &quot;sqrt(2) | calc&quot;
+1.414213562373095
+&gt; echo pi | calc
+3.141592653589793
+&gt; echo e | calc
+2.718281828459045
+&gt; echo &quot;sin(pi / 2)&quot; | calc
+1.000000000000000
+&gt; echo &quot;floor(5999/1000)&quot; | calc
+5.000000000000000
+</code></pre><pre><code>❯ open abc.json
+───┬──────
+ # │ size
+───┼──────
+ 0 │  816
+ 1 │ 1627
+ 2 │ 1436
+ 3 │ 1573
+ 4 │  935
+ 5 │   52
+ 6 │  999
+ 7 │ 1639
+───┴──────
+
+❯ open abc.json | format &quot;({size} + 500) * 4&quot;
+───┬──────────────────
+ # │ &lt;value&gt;
+───┼──────────────────
+ 0 │ (816 + 500) * 4
+ 1 │ (1627 + 500) * 4
+ 2 │ (1436 + 500) * 4
+ 3 │ (1573 + 500) * 4
+ 4 │ (935 + 500) * 4
+ 5 │ (52 + 500) * 4
+ 6 │ (999 + 500) * 4
+ 7 │ (1639 + 500) * 4
+───┴──────────────────
+
+❯ open abc.json | format &quot;({size} + 500) * 4&quot; | calc
+───┬───────────
+ # │ &lt;value&gt;
+───┼───────────
+ 0 │ 5264.0000
+ 1 │ 8508.0000
+ 2 │ 7744.0000
+ 3 │ 8292.0000
+ 4 │ 5740.0000
+ 5 │ 2208.0000
+ 6 │ 5996.0000
+ 7 │ 8556.0000
+───┴───────────
+
+❯ open abc.json | format &quot;({size} - 1000) * 4&quot; | calc
+───┬────────────
+ # │ &lt;value&gt;
+───┼────────────
+ 0 │  -736.0000
+ 1 │  2508.0000
+ 2 │  1744.0000
+ 3 │  2292.0000
+ 4 │  -260.0000
+ 5 │ -3792.0000
+ 6 │    -4.0000
+ 7 │  2556.0000
+───┴────────────
+</code></pre><p>Note that since <code>calc</code> uses floating-point numbers, the result may not always be precise.</p><pre><code>&gt; echo &quot;floor(5999999999999999999/1000000000000000000)&quot; | calc
+6.000000000000000
+</code></pre></main></body></html>

@@ -1,0 +1,33 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>tags | Nushell</title><meta name=description content="The tags commands allows users to access the metadata of the previous value in the pipeline. This command may be run on multiple values of input as well.
+As of writing this, the only metadata returned includes:
+ span: the start and end indices of the previous value&rsquo;s substring location anchor: the source where data was loaded from; this may not appear if the previous pipeline value didn&rsquo;t actually have a source (like trying to open a dir, or running ls on a dir)  Examples > open README."><link rel=canonical href=http://example.org/docs/commands/tags/><link rel=stylesheet href=http://example.org/sass/main.css><meta property="og:title" content="tags"><meta property="og:description" content="The tags commands allows users to access the metadata of the previous value in the pipeline. This command may be run on multiple values of input as well.
+As of writing this, the only metadata returned includes:
+ span: the start and end indices of the previous value&rsquo;s substring location anchor: the source where data was loaded from; this may not appear if the previous pipeline value didn&rsquo;t actually have a source (like trying to open a dir, or running ls on a dir)  Examples > open README."><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/docs/commands/tags/"><meta name=twitter:card content="summary"><meta name=twitter:title content="tags"><meta name=twitter:description content="The tags commands allows users to access the metadata of the previous value in the pipeline. This command may be run on multiple values of input as well.
+As of writing this, the only metadata returned includes:
+ span: the start and end indices of the previous value&rsquo;s substring location anchor: the source where data was loaded from; this may not appear if the previous pipeline value didn&rsquo;t actually have a source (like trying to open a dir, or running ls on a dir)  Examples > open README."><script src=https://unpkg.com/quicklink@2.0.0/dist/quicklink.umd.js></script><script defer>quicklink.listen()</script></head><body><header class=nu-top-app-bar><div class=nu-top-app-bar__row><div class="nu-top-app-bar__section nu-top-app-bar__section--start"><span class=h1-minor><span class=nu-logo-green>nu</span><span class=nu-logo-black>shell</span></span></div><div class="nu-top-app-bar__section nu-top-app-bar__section--end"><a href=/ class="nu-top-app-bar__link h1-minor-minor"><span>home</span></a>
+<a href=/docs class="nu-top-app-bar__link h1-minor-minor"><span>docs</span></a>
+<a href=https://github.com/nushell/nushell class="nu-top-app-bar__link h1-minor-minor"><span>github</span></a></div></div></header><main class=nu-content><h2>tags</h2><p>The tags commands allows users to access the metadata of the previous value in
+the pipeline. This command may be run on multiple values of input as well.</p><p>As of writing this, the only metadata returned includes:</p><ul><li><code>span</code>: the start and end indices of the previous value&rsquo;s substring location</li><li><code>anchor</code>: the source where data was loaded from; this may not appear if the
+previous pipeline value didn&rsquo;t actually have a source (like trying to <code>open</code> a
+dir, or running <code>ls</code> on a dir)</li></ul><h2 id=examples>Examples</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; open README.md | tags
+━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ span           │ anchor
+────────────────┼──────────────────────────────────────────────────
+ <span style=color:#f92672>[</span>table: <span style=color:#ae81ff>1</span> row<span style=color:#f92672>]</span> │ /Users/danielh/Projects/github/nushell/README.md
+━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; open README.md | tags | get span
+━━━━━━━┯━━━━━
+ start │ end
+───────┼─────
+     <span style=color:#ae81ff>5</span> │  <span style=color:#ae81ff>14</span>
+━━━━━━━┷━━━━━
+</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; ls | tags | first <span style=color:#ae81ff>3</span> | get span
+━━━┯━━━━━━━┯━━━━━
+ <span style=color:#75715e># │ start │ end</span>
+───┼───────┼─────
+ <span style=color:#ae81ff>0</span> │     <span style=color:#ae81ff>0</span> │   <span style=color:#ae81ff>2</span>
+ <span style=color:#ae81ff>1</span> │     <span style=color:#ae81ff>0</span> │   <span style=color:#ae81ff>2</span>
+ <span style=color:#ae81ff>2</span> │     <span style=color:#ae81ff>0</span> │   <span style=color:#ae81ff>2</span>
+━━━┷━━━━━━━┷━━━━━
+</code></pre></div><h2 id=reference>Reference</h2><p>More useful information on the <code>tags</code> command can be found by referencing <a href=https://www.nushell.sh/book/en/metadata.html>The
+Nu Book&rsquo;s entry on Metadata</a></p></main></body></html>

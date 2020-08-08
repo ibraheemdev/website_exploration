@@ -1,0 +1,18 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Aliases | Nushell</title><meta name=description content="Shorthands for long pipelines"><link rel=canonical href=http://example.org/docs/book/aliases/><link rel=stylesheet href=http://example.org/sass/main.css><meta property="og:title" content="Aliases"><meta property="og:description" content="Shorthands for long pipelines"><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/docs/book/aliases/"><meta name=twitter:card content="summary"><meta name=twitter:title content="Aliases"><meta name=twitter:description content="Shorthands for long pipelines"><script src=https://unpkg.com/quicklink@2.0.0/dist/quicklink.umd.js></script><script defer>quicklink.listen()</script></head><body><header class=nu-top-app-bar><div class=nu-top-app-bar__row><div class="nu-top-app-bar__section nu-top-app-bar__section--start"><span class=h1-minor><span class=nu-logo-green>nu</span><span class=nu-logo-black>shell</span></span></div><div class="nu-top-app-bar__section nu-top-app-bar__section--end"><a href=/ class="nu-top-app-bar__link h1-minor-minor"><span>home</span></a>
+<a href=/docs class="nu-top-app-bar__link h1-minor-minor"><span>docs</span></a>
+<a href=https://github.com/nushell/nushell class="nu-top-app-bar__link h1-minor-minor"><span>github</span></a></div></div></header><main class=nu-content><h2>Aliases</h2><p>Nu&rsquo;s ability to compose long pipelines allow you a lot of control over your data and system, but it comes at the price of a lot of typing. Ideally, you&rsquo;d be able to save your well-crafted pipelines to use again and again.</p><p>This is where aliases come in.</p><p>An alias allows you to create a short name for a block of commands. When the alias is run, it&rsquo;s like you typed that block of commands out.</p><p>Example:</p><pre><code>&gt; alias ls-names [] { ls | select name }
+&gt; ls-names
+────┬────────────────────
+ #  │ name 
+────┼────────────────────
+  0 │ 404.html 
+  1 │ CONTRIBUTING.md 
+  2 │ Gemfile 
+  3 │ Gemfile.lock 
+  4 │ LICENSE 
+</code></pre><h2 id=parameters>Parameters</h2><p>Aliases can also take optional parameters that are passed to the block. Each of these becomes a new variable in the block.</p><pre><code>&gt; alias e [msg] { echo $msg }
+&gt; e &quot;hello world&quot;
+hello world
+</code></pre><p>You can have an arbitrary number of these arguments. When the user doesn&rsquo;t provide a value, the variable in the block will evaluate to Nothing and be removed.</p><h2 id=persisting>Persisting</h2><p>By default, aliases only apply to the current session. That can be useful for a temporary helper or testing a new alias, but for aliases to be really useful, they need to be persisted. To do so, call the alias with the <code>--save</code> flag (or the <code>-s</code> shorthand). For example:</p><pre><code>alias e --save [msg] { echo $msg }
+</code></pre><p>Aliases are stored in the startup config, which you can look at with <code>config --get startup</code>. If you get an error, the <code>startup</code> config doesn&rsquo;t yet exist.</p><p>You can also edit alises directly in the config.toml file, for example using <code>vi</code>:</p><pre><code>config --path | vi $it
+</code></pre></main><hr class=footer-line><div class=language-footer><a href=http://example.org/es/docs/book/aliases/>es: Aliases</a></div></body></html>

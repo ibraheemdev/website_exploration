@@ -1,0 +1,106 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>to-toml | Nushell</title><meta name=description content="Converts table data into toml text.
+Example > shells ━━━┯━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━ # │ │ name │ path ───┼───┼────────────┼──────────────────────── 0 │ X │ filesystem │ /home/shaurya 1 │ │ filesystem │ /home/shaurya/Pictures 2 │ │ filesystem │ /home/shaurya/Desktop ━━━┷━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━ > shells | to toml [[]] &#34; &#34; = &#34;X&#34; name = &#34;filesystem&#34; path = &#34;/home/shaurya&#34; [[]] &#34; &#34; = &#34; &#34; name = &#34;filesystem&#34; path = &#34;/home/shaurya/Pictures&#34; [[]] &#34; &#34; = &#34; &#34; name = &#34;filesystem&#34; path = &#34;/home/shaurya/Desktop&#34; > open cargo_sample."><link rel=canonical href=http://example.org/docs/commands/to-toml/><link rel=stylesheet href=http://example.org/sass/main.css><meta property="og:title" content="to-toml"><meta property="og:description" content="Converts table data into toml text.
+Example > shells ━━━┯━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━ # │ │ name │ path ───┼───┼────────────┼──────────────────────── 0 │ X │ filesystem │ /home/shaurya 1 │ │ filesystem │ /home/shaurya/Pictures 2 │ │ filesystem │ /home/shaurya/Desktop ━━━┷━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━ > shells | to toml [[]] &#34; &#34; = &#34;X&#34; name = &#34;filesystem&#34; path = &#34;/home/shaurya&#34; [[]] &#34; &#34; = &#34; &#34; name = &#34;filesystem&#34; path = &#34;/home/shaurya/Pictures&#34; [[]] &#34; &#34; = &#34; &#34; name = &#34;filesystem&#34; path = &#34;/home/shaurya/Desktop&#34; > open cargo_sample."><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/docs/commands/to-toml/"><meta name=twitter:card content="summary"><meta name=twitter:title content="to-toml"><meta name=twitter:description content="Converts table data into toml text.
+Example > shells ━━━┯━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━ # │ │ name │ path ───┼───┼────────────┼──────────────────────── 0 │ X │ filesystem │ /home/shaurya 1 │ │ filesystem │ /home/shaurya/Pictures 2 │ │ filesystem │ /home/shaurya/Desktop ━━━┷━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━ > shells | to toml [[]] &#34; &#34; = &#34;X&#34; name = &#34;filesystem&#34; path = &#34;/home/shaurya&#34; [[]] &#34; &#34; = &#34; &#34; name = &#34;filesystem&#34; path = &#34;/home/shaurya/Pictures&#34; [[]] &#34; &#34; = &#34; &#34; name = &#34;filesystem&#34; path = &#34;/home/shaurya/Desktop&#34; > open cargo_sample."><script src=https://unpkg.com/quicklink@2.0.0/dist/quicklink.umd.js></script><script defer>quicklink.listen()</script></head><body><header class=nu-top-app-bar><div class=nu-top-app-bar__row><div class="nu-top-app-bar__section nu-top-app-bar__section--start"><span class=h1-minor><span class=nu-logo-green>nu</span><span class=nu-logo-black>shell</span></span></div><div class="nu-top-app-bar__section nu-top-app-bar__section--end"><a href=/ class="nu-top-app-bar__link h1-minor-minor"><span>home</span></a>
+<a href=/docs class="nu-top-app-bar__link h1-minor-minor"><span>docs</span></a>
+<a href=https://github.com/nushell/nushell class="nu-top-app-bar__link h1-minor-minor"><span>github</span></a></div></div></header><main class=nu-content><h2>to-toml</h2><p>Converts table data into toml text.</p><h2 id=example>Example</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; shells
+━━━┯━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━
+ <span style=color:#75715e># │   │ name       │ path</span>
+───┼───┼────────────┼────────────────────────
+ <span style=color:#ae81ff>0</span> │ X │ filesystem │ /home/shaurya
+ <span style=color:#ae81ff>1</span> │   │ filesystem │ /home/shaurya/Pictures
+ <span style=color:#ae81ff>2</span> │   │ filesystem │ /home/shaurya/Desktop
+━━━┷━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━
+&gt; shells | to toml
+<span style=color:#f92672>[[]]</span>
+<span style=color:#e6db74>&#34; &#34;</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;X&#34;</span>
+name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;filesystem&#34;</span>
+path <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;/home/shaurya&#34;</span>
+
+<span style=color:#f92672>[[]]</span>
+<span style=color:#e6db74>&#34; &#34;</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34; &#34;</span>
+name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;filesystem&#34;</span>
+path <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;/home/shaurya/Pictures&#34;</span>
+
+<span style=color:#f92672>[[]]</span>
+<span style=color:#e6db74>&#34; &#34;</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34; &#34;</span>
+name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;filesystem&#34;</span>
+path <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;/home/shaurya/Desktop&#34;</span>
+
+</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; open cargo_sample.toml
+━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━
+ dependencies   │ dev-dependencies │ package
+────────────────┼──────────────────┼────────────────
+ <span style=color:#f92672>[</span>table: <span style=color:#ae81ff>1</span> row<span style=color:#f92672>]</span> │ <span style=color:#f92672>[</span>table: <span style=color:#ae81ff>1</span> row<span style=color:#f92672>]</span>   │ <span style=color:#f92672>[</span>table: <span style=color:#ae81ff>1</span> row<span style=color:#f92672>]</span>
+━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━
+&gt; open cargo_sample.toml | to toml
+<span style=color:#f92672>[</span>dependencies<span style=color:#f92672>]</span>
+ansi_term <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.11.0&#34;</span>
+app_dirs <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;1.2.1&#34;</span>
+byte-unit <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;2.1.0&#34;</span>
+bytes <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.4.12&#34;</span>
+chrono-humanize <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.0.11&#34;</span>
+chrono-tz <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.5.1&#34;</span>
+clap <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;2.33.0&#34;</span>
+conch-parser <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.1.1&#34;</span>
+derive-new <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.5.6&#34;</span>
+dunce <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;1.0.0&#34;</span>
+futures-sink-preview <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.3.0-alpha.16&#34;</span>
+futures_codec <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.2.2&#34;</span>
+getset <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.0.7&#34;</span>
+git2 <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.8.0&#34;</span>
+itertools <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.8.0&#34;</span>
+lalrpop-util <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.17.0&#34;</span>
+language-reporting <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.3.0&#34;</span>
+log <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.4.6&#34;</span>
+logos <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.10.0-rc2&#34;</span>
+logos-derive <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.10.0-rc2&#34;</span>
+nom <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;5.0.0-beta1&#34;</span>
+ordered-float <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;1.0.2&#34;</span>
+pretty_env_logger <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.3.0&#34;</span>
+prettyprint <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.6.0&#34;</span>
+prettytable-rs <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.8.0&#34;</span>
+regex <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;1.1.6&#34;</span>
+rustyline <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;4.1.0&#34;</span>
+serde <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;1.0.91&#34;</span>
+serde_derive <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;1.0.91&#34;</span>
+serde_json <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;1.0.39&#34;</span>
+sysinfo <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.8.4&#34;</span>
+term <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.5.2&#34;</span>
+tokio-fs <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.1.6&#34;</span>
+toml <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.5.1&#34;</span>
+toml-query <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.9.0&#34;</span>
+
+<span style=color:#f92672>[</span>dependencies.chrono<span style=color:#f92672>]</span>
+features <span style=color:#f92672>=</span> <span style=color:#f92672>[</span><span style=color:#e6db74>&#34;serde&#34;</span><span style=color:#f92672>]</span>
+version <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.4.6&#34;</span>
+
+<span style=color:#f92672>[</span>dependencies.cursive<span style=color:#f92672>]</span>
+default-features <span style=color:#f92672>=</span> false
+features <span style=color:#f92672>=</span> <span style=color:#f92672>[</span><span style=color:#e6db74>&#34;pancurses-backend&#34;</span><span style=color:#f92672>]</span>
+version <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.14.0&#34;</span>
+
+<span style=color:#f92672>[</span>dependencies.futures-preview<span style=color:#f92672>]</span>
+features <span style=color:#f92672>=</span> <span style=color:#f92672>[</span><span style=color:#e6db74>&#34;compat&#34;</span>, <span style=color:#e6db74>&#34;io-compat&#34;</span><span style=color:#f92672>]</span>
+version <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.3.0-alpha.16&#34;</span>
+
+<span style=color:#f92672>[</span>dependencies.indexmap<span style=color:#f92672>]</span>
+features <span style=color:#f92672>=</span> <span style=color:#f92672>[</span><span style=color:#e6db74>&#34;serde-1&#34;</span><span style=color:#f92672>]</span>
+version <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;1.0.2&#34;</span>
+
+<span style=color:#f92672>[</span>dependencies.pancurses<span style=color:#f92672>]</span>
+features <span style=color:#f92672>=</span> <span style=color:#f92672>[</span><span style=color:#e6db74>&#34;win32a&#34;</span><span style=color:#f92672>]</span>
+version <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.16&#34;</span>
+
+<span style=color:#f92672>[</span>dev-dependencies<span style=color:#f92672>]</span>
+pretty_assertions <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.6.1&#34;</span>
+
+<span style=color:#f92672>[</span>package<span style=color:#f92672>]</span>
+authors <span style=color:#f92672>=</span> <span style=color:#f92672>[</span><span style=color:#e6db74>&#34;The Nu Project Contributors&#34;</span><span style=color:#f92672>]</span>
+description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;A shell for the GitHub era&#34;</span>
+edition <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;2018&#34;</span>
+license <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;ISC&#34;</span>
+name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;nu&#34;</span>
+version <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0.1.1&#34;</span>
+
+</code></pre></div></main></body></html>

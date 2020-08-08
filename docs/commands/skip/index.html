@@ -1,0 +1,26 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>skip | Nushell</title><meta name=description content="Skips the first &lsquo;n&rsquo; rows of a table.
+Usage > [input-command] | skip (n) Examples If we open a file with a list of contacts, we get all of the contacts.
+> open contacts.csv ───┬─────────┬──────┬───────────────── # │ first │ last │ email ───┼─────────┼──────┼───────────────── 0 │ John │ Doe │ doe.1@email.com 1 │ Jane │ Doe │ doe.2@email.com 2 │ Chris │ Doe │ doe.3@email.com 3 │ Francis │ Doe │ doe."><link rel=canonical href=http://example.org/docs/commands/skip/><link rel=stylesheet href=http://example.org/sass/main.css><meta property="og:title" content="skip"><meta property="og:description" content="Skips the first &lsquo;n&rsquo; rows of a table.
+Usage > [input-command] | skip (n) Examples If we open a file with a list of contacts, we get all of the contacts.
+> open contacts.csv ───┬─────────┬──────┬───────────────── # │ first │ last │ email ───┼─────────┼──────┼───────────────── 0 │ John │ Doe │ doe.1@email.com 1 │ Jane │ Doe │ doe.2@email.com 2 │ Chris │ Doe │ doe.3@email.com 3 │ Francis │ Doe │ doe."><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/docs/commands/skip/"><meta name=twitter:card content="summary"><meta name=twitter:title content="skip"><meta name=twitter:description content="Skips the first &lsquo;n&rsquo; rows of a table.
+Usage > [input-command] | skip (n) Examples If we open a file with a list of contacts, we get all of the contacts.
+> open contacts.csv ───┬─────────┬──────┬───────────────── # │ first │ last │ email ───┼─────────┼──────┼───────────────── 0 │ John │ Doe │ doe.1@email.com 1 │ Jane │ Doe │ doe.2@email.com 2 │ Chris │ Doe │ doe.3@email.com 3 │ Francis │ Doe │ doe."><script src=https://unpkg.com/quicklink@2.0.0/dist/quicklink.umd.js></script><script defer>quicklink.listen()</script></head><body><header class=nu-top-app-bar><div class=nu-top-app-bar__row><div class="nu-top-app-bar__section nu-top-app-bar__section--start"><span class=h1-minor><span class=nu-logo-green>nu</span><span class=nu-logo-black>shell</span></span></div><div class="nu-top-app-bar__section nu-top-app-bar__section--end"><a href=/ class="nu-top-app-bar__link h1-minor-minor"><span>home</span></a>
+<a href=/docs class="nu-top-app-bar__link h1-minor-minor"><span>docs</span></a>
+<a href=https://github.com/nushell/nushell class="nu-top-app-bar__link h1-minor-minor"><span>github</span></a></div></div></header><main class=nu-content><h2>skip</h2><p>Skips the first &lsquo;n&rsquo; rows of a table.</p><h2 id=usage>Usage</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; <span style=color:#f92672>[</span>input-command<span style=color:#f92672>]</span> | skip <span style=color:#f92672>(</span>n<span style=color:#f92672>)</span>
+</code></pre></div><h2 id=examples>Examples</h2><p>If we open a file with a list of contacts, we get all of the contacts.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; open contacts.csv
+───┬─────────┬──────┬─────────────────
+ <span style=color:#75715e># │ first   │ last │ email</span>
+───┼─────────┼──────┼─────────────────
+ <span style=color:#ae81ff>0</span> │ John    │ Doe  │ doe.1@email.com
+ <span style=color:#ae81ff>1</span> │ Jane    │ Doe  │ doe.2@email.com
+ <span style=color:#ae81ff>2</span> │ Chris   │ Doe  │ doe.3@email.com
+ <span style=color:#ae81ff>3</span> │ Francis │ Doe  │ doe.4@email.com
+───┴─────────┴──────┴─────────────────
+</code></pre></div><p>To ignore the first 2 contacts, we can <code>skip</code> them.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; open contacts.csv | skip <span style=color:#ae81ff>2</span>
+───┬─────────┬──────┬─────────────────
+ <span style=color:#75715e># │ first   │ last │ email</span>
+───┼─────────┼──────┼─────────────────
+ <span style=color:#ae81ff>0</span> │ Chris   │ Doe  │ doe.3@email.com
+ <span style=color:#ae81ff>1</span> │ Francis │ Doe  │ doe.4@email.com
+───┴─────────┴──────┴─────────────────
+</code></pre></div></main></body></html>

@@ -1,0 +1,25 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>exit | Nushell</title><meta name=description content="Exits the nu shell. If you have multiple nu shells, use exit --now to exit all of them.
+Examples > exit > shells ━━━┯━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ # │ │ name │ path ───┼───┼────────────┼───────────────────────────────────── 0 │ │ filesystem │ /home/jonathanturner/Source/nushell 1 │ │ filesystem │ /home 2 │ X │ filesystem │ /usr ━━━┷━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ > exit > shells ━━━┯━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ # │ │ name │ path ───┼───┼────────────┼───────────────────────────────────── 0 │ │ filesystem │ /home/jonathanturner/Source/nushell 1 │ X │ filesystem │ /home ━━━┷━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ > exit --now exits both the shells"><link rel=canonical href=http://example.org/docs/commands/exit/><link rel=stylesheet href=http://example.org/sass/main.css><meta property="og:title" content="exit"><meta property="og:description" content="Exits the nu shell. If you have multiple nu shells, use exit --now to exit all of them.
+Examples > exit > shells ━━━┯━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ # │ │ name │ path ───┼───┼────────────┼───────────────────────────────────── 0 │ │ filesystem │ /home/jonathanturner/Source/nushell 1 │ │ filesystem │ /home 2 │ X │ filesystem │ /usr ━━━┷━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ > exit > shells ━━━┯━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ # │ │ name │ path ───┼───┼────────────┼───────────────────────────────────── 0 │ │ filesystem │ /home/jonathanturner/Source/nushell 1 │ X │ filesystem │ /home ━━━┷━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ > exit --now exits both the shells"><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/docs/commands/exit/"><meta name=twitter:card content="summary"><meta name=twitter:title content="exit"><meta name=twitter:description content="Exits the nu shell. If you have multiple nu shells, use exit --now to exit all of them.
+Examples > exit > shells ━━━┯━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ # │ │ name │ path ───┼───┼────────────┼───────────────────────────────────── 0 │ │ filesystem │ /home/jonathanturner/Source/nushell 1 │ │ filesystem │ /home 2 │ X │ filesystem │ /usr ━━━┷━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ > exit > shells ━━━┯━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ # │ │ name │ path ───┼───┼────────────┼───────────────────────────────────── 0 │ │ filesystem │ /home/jonathanturner/Source/nushell 1 │ X │ filesystem │ /home ━━━┷━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ > exit --now exits both the shells"><script src=https://unpkg.com/quicklink@2.0.0/dist/quicklink.umd.js></script><script defer>quicklink.listen()</script></head><body><header class=nu-top-app-bar><div class=nu-top-app-bar__row><div class="nu-top-app-bar__section nu-top-app-bar__section--start"><span class=h1-minor><span class=nu-logo-green>nu</span><span class=nu-logo-black>shell</span></span></div><div class="nu-top-app-bar__section nu-top-app-bar__section--end"><a href=/ class="nu-top-app-bar__link h1-minor-minor"><span>home</span></a>
+<a href=/docs class="nu-top-app-bar__link h1-minor-minor"><span>docs</span></a>
+<a href=https://github.com/nushell/nushell class="nu-top-app-bar__link h1-minor-minor"><span>github</span></a></div></div></header><main class=nu-content><h2>exit</h2><p>Exits the nu shell. If you have multiple nu shells, use <code>exit --now</code> to exit all of them.</p><h2 id=examples>Examples</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; exit
+</code></pre></div><pre><code>&gt; shells
+━━━┯━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ # │   │ name       │ path
+───┼───┼────────────┼─────────────────────────────────────
+ 0 │   │ filesystem │ /home/jonathanturner/Source/nushell
+ 1 │   │ filesystem │ /home
+ 2 │ X │ filesystem │ /usr
+━━━┷━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+&gt; exit
+&gt; shells
+━━━┯━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ # │   │ name       │ path
+───┼───┼────────────┼─────────────────────────────────────
+ 0 │   │ filesystem │ /home/jonathanturner/Source/nushell
+ 1 │ X │ filesystem │ /home
+━━━┷━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+&gt; exit --now
+exits both the shells
+</code></pre></main></body></html>

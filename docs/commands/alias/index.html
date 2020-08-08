@@ -1,0 +1,25 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>alias | Nushell</title><meta name=description content="Define aliases for commands."><link rel=canonical href=http://example.org/docs/commands/alias/><link rel=stylesheet href=http://example.org/sass/main.css><meta property="og:title" content="alias"><meta property="og:description" content="Define aliases for commands."><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/docs/commands/alias/"><meta name=twitter:card content="summary"><meta name=twitter:title content="alias"><meta name=twitter:description content="Define aliases for commands."><script src=https://unpkg.com/quicklink@2.0.0/dist/quicklink.umd.js></script><script defer>quicklink.listen()</script></head><body><header class=nu-top-app-bar><div class=nu-top-app-bar__row><div class="nu-top-app-bar__section nu-top-app-bar__section--start"><span class=h1-minor><span class=nu-logo-green>nu</span><span class=nu-logo-black>shell</span></span></div><div class="nu-top-app-bar__section nu-top-app-bar__section--end"><a href=/ class="nu-top-app-bar__link h1-minor-minor"><span>home</span></a>
+<a href=/docs class="nu-top-app-bar__link h1-minor-minor"><span>docs</span></a>
+<a href=https://github.com/nushell/nushell class="nu-top-app-bar__link h1-minor-minor"><span>github</span></a></div></div></header><main class=nu-content><h2>alias</h2><p>This command allows you to define shortcuts for other common commands.</p><p>The command expects three parameters:</p><ul><li>the name of alias</li><li>the parameters as a space-separated list (<code>[a b ...]</code>), can be empty (<code>[]</code>)</li><li>the body of the alias as a <code>{...}</code> block</li></ul><h2 id=examples>Examples</h2><p>Define a custom <code>myecho</code> command as an alias:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; alias myecho <span style=color:#f92672>[</span>msg<span style=color:#f92672>]</span> <span style=color:#f92672>{</span> echo $msg <span style=color:#f92672>}</span>
+&gt; myecho <span style=color:#e6db74>&#34;hello world&#34;</span>
+hello world
+</code></pre></div><p>Since the parameters are well defined, calling the command with the wrong number of parameters will fail properly:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; myecho hello world
+error: myecho unexpected world
+- shell:1:18
+<span style=color:#ae81ff>1</span> | myecho hello world
+  |              ^^^^^ unexpected argument <span style=color:#f92672>(</span>try myecho -h<span style=color:#f92672>)</span>
+</code></pre></div><p>The suggested help command works!</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; myecho -h
+
+Usage:
+  &gt; myecho <span style=color:#f92672>(</span>$msg<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>flags<span style=color:#f92672>}</span>
+
+parameters:
+  <span style=color:#f92672>(</span>$msg<span style=color:#f92672>)</span>
+
+flags:
+  -h, --help: Display this help message
+</code></pre></div><h2 id=persistent-aliases>Persistent aliases</h2><p>Aliases are most useful when they are persistent. For that, add them to your startup config:</p><pre><code>&gt; config --set [startup [&quot;alias myecho [msg] { echo $msg }&quot;]]
+</code></pre><p>This is fine for the first alias, but since it overwrites the startup config, you need a different approach for additional aliases.</p><p>To add a 2nd alias:</p><pre><code>config --get startup | append &quot;alias s [] { git status -sb }&quot; | config --set_into startup
+</code></pre><p>This first reads the <code>startup</code> config (a table of strings), then appends another alias, then sets the <code>startup</code> config with the output of the pipeline.</p><p>To make this process easier, you could define another alias:</p><pre><code>&gt; alias addalias [alias-string] { config --get startup | append $alias-string | config --set_into startup }
+</code></pre><p>Then use that to add more aliases:</p><pre><code>addalias &quot;alias s [] { git status -sb }&quot;
+</code></pre></main></body></html>

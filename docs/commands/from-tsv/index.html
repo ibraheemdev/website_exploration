@@ -1,0 +1,42 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>from-tsv | Nushell</title><meta name=description content="Parse text as .tsv and create table.
+Syntax: from tsv {flags}
+Flags: --headerless don't treat the first row as column names  Examples Let&rsquo;s say we have the following file which is formatted like a tsv file:
+> open elements.txt Symbol Element H Hydrogen He Helium Li Lithium Be Beryllium If we pass the output of the open command to from tsv we get a correct formatted table:
+> open elements."><link rel=canonical href=http://example.org/docs/commands/from-tsv/><link rel=stylesheet href=http://example.org/sass/main.css><meta property="og:title" content="from-tsv"><meta property="og:description" content="Parse text as .tsv and create table.
+Syntax: from tsv {flags}
+Flags: --headerless don't treat the first row as column names  Examples Let&rsquo;s say we have the following file which is formatted like a tsv file:
+> open elements.txt Symbol Element H Hydrogen He Helium Li Lithium Be Beryllium If we pass the output of the open command to from tsv we get a correct formatted table:
+> open elements."><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/docs/commands/from-tsv/"><meta name=twitter:card content="summary"><meta name=twitter:title content="from-tsv"><meta name=twitter:description content="Parse text as .tsv and create table.
+Syntax: from tsv {flags}
+Flags: --headerless don't treat the first row as column names  Examples Let&rsquo;s say we have the following file which is formatted like a tsv file:
+> open elements.txt Symbol Element H Hydrogen He Helium Li Lithium Be Beryllium If we pass the output of the open command to from tsv we get a correct formatted table:
+> open elements."><script src=https://unpkg.com/quicklink@2.0.0/dist/quicklink.umd.js></script><script defer>quicklink.listen()</script></head><body><header class=nu-top-app-bar><div class=nu-top-app-bar__row><div class="nu-top-app-bar__section nu-top-app-bar__section--start"><span class=h1-minor><span class=nu-logo-green>nu</span><span class=nu-logo-black>shell</span></span></div><div class="nu-top-app-bar__section nu-top-app-bar__section--end"><a href=/ class="nu-top-app-bar__link h1-minor-minor"><span>home</span></a>
+<a href=/docs class="nu-top-app-bar__link h1-minor-minor"><span>docs</span></a>
+<a href=https://github.com/nushell/nushell class="nu-top-app-bar__link h1-minor-minor"><span>github</span></a></div></div></header><main class=nu-content><h2>from-tsv</h2><p>Parse text as <code>.tsv</code> and create table.</p><p>Syntax: <code>from tsv {flags}</code></p><h3 id=flags>Flags:</h3><pre><code>--headerless
+  don't treat the first row as column names
+</code></pre><h2 id=examples>Examples</h2><p>Let&rsquo;s say we have the following file which is formatted like a <code>tsv</code> file:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; open elements.txt
+Symbol        Element
+H        Hydrogen
+He        Helium
+Li        Lithium
+Be        Beryllium
+</code></pre></div><p>If we pass the output of the <code>open</code> command to <code>from tsv</code> we get a correct formatted table:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; open elements.txt | from tsv
+━━━┯━━━━━━━━┯━━━━━━━━━━━
+ <span style=color:#75715e># │ Symbol │ Element</span>
+───┼────────┼───────────
+ <span style=color:#ae81ff>0</span> │ H      │ Hydrogen
+ <span style=color:#ae81ff>1</span> │ He     │ Helium
+ <span style=color:#ae81ff>2</span> │ Li     │ Lithium
+ <span style=color:#ae81ff>3</span> │ Be     │ Beryllium
+━━━┷━━━━━━━━┷━━━━━━━━━━━
+</code></pre></div><p>Using the <code>--headerless</code> flag has the following output:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; open elements.txt | from tsv --headerless
+━━━━┯━━━━━━━━━┯━━━━━━━━━━━
+ <span style=color:#75715e>#  │ Column1 │ Column2</span>
+────┼─────────┼───────────
+  <span style=color:#ae81ff>0</span> │ Symbol  │ Element
+  <span style=color:#ae81ff>1</span> │ H       │ Hydrogen
+  <span style=color:#ae81ff>2</span> │ He      │ Helium
+  <span style=color:#ae81ff>3</span> │ Li      │ Lithium
+  <span style=color:#ae81ff>4</span> │ Be      │ Beryllium
+━━━━┷━━━━━━━━━┷━━━━━━━━━━━
+</code></pre></div></main></body></html>

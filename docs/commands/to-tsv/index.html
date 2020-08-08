@@ -1,0 +1,75 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>to-tsv | Nushell</title><meta name=description content="Converts table data into tsv text.
+Example > shells ━━━┯━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━ # │ │ name │ path ───┼───┼────────────┼──────────────────────── 0 │ X │ filesystem │ /home/shaurya 1 │ │ filesystem │ /home/shaurya/Pictures 2 │ │ filesystem │ /home/shaurya/Desktop ━━━┷━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━ > shells | to tsv name	path X	filesystem	/home/shaurya > open caco3_plastics.tsv ━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━┯━━━━━━━━━━━┯━━━━━━━━━━━━━━ # │ importer │ shipper │ tariff_item │ name │ origin │ shipped_at │ arrived_at │ net_weight │ fob_price │ cif_price │ cif_per_net_ │ │ │ │ │ │ │ │ │ │ │ weight ───┼──────────────┼──────────────┼─────────────┼──────────────┼──────────┼────────────┼────────────┼────────────┼───────────┼───────────┼────────────── 0 │ PLASTICOS │ S A REVERTE │ 2509000000 │ CARBONATO DE │ SPAIN │ 18/03/2016 │ 17/04/2016 │ 81,000."><link rel=canonical href=http://example.org/docs/commands/to-tsv/><link rel=stylesheet href=http://example.org/sass/main.css><meta property="og:title" content="to-tsv"><meta property="og:description" content="Converts table data into tsv text.
+Example > shells ━━━┯━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━ # │ │ name │ path ───┼───┼────────────┼──────────────────────── 0 │ X │ filesystem │ /home/shaurya 1 │ │ filesystem │ /home/shaurya/Pictures 2 │ │ filesystem │ /home/shaurya/Desktop ━━━┷━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━ > shells | to tsv name	path X	filesystem	/home/shaurya > open caco3_plastics.tsv ━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━┯━━━━━━━━━━━┯━━━━━━━━━━━━━━ # │ importer │ shipper │ tariff_item │ name │ origin │ shipped_at │ arrived_at │ net_weight │ fob_price │ cif_price │ cif_per_net_ │ │ │ │ │ │ │ │ │ │ │ weight ───┼──────────────┼──────────────┼─────────────┼──────────────┼──────────┼────────────┼────────────┼────────────┼───────────┼───────────┼────────────── 0 │ PLASTICOS │ S A REVERTE │ 2509000000 │ CARBONATO DE │ SPAIN │ 18/03/2016 │ 17/04/2016 │ 81,000."><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/docs/commands/to-tsv/"><meta name=twitter:card content="summary"><meta name=twitter:title content="to-tsv"><meta name=twitter:description content="Converts table data into tsv text.
+Example > shells ━━━┯━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━ # │ │ name │ path ───┼───┼────────────┼──────────────────────── 0 │ X │ filesystem │ /home/shaurya 1 │ │ filesystem │ /home/shaurya/Pictures 2 │ │ filesystem │ /home/shaurya/Desktop ━━━┷━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━ > shells | to tsv name	path X	filesystem	/home/shaurya > open caco3_plastics.tsv ━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━┯━━━━━━━━━━━┯━━━━━━━━━━━━━━ # │ importer │ shipper │ tariff_item │ name │ origin │ shipped_at │ arrived_at │ net_weight │ fob_price │ cif_price │ cif_per_net_ │ │ │ │ │ │ │ │ │ │ │ weight ───┼──────────────┼──────────────┼─────────────┼──────────────┼──────────┼────────────┼────────────┼────────────┼───────────┼───────────┼────────────── 0 │ PLASTICOS │ S A REVERTE │ 2509000000 │ CARBONATO DE │ SPAIN │ 18/03/2016 │ 17/04/2016 │ 81,000."><script src=https://unpkg.com/quicklink@2.0.0/dist/quicklink.umd.js></script><script defer>quicklink.listen()</script></head><body><header class=nu-top-app-bar><div class=nu-top-app-bar__row><div class="nu-top-app-bar__section nu-top-app-bar__section--start"><span class=h1-minor><span class=nu-logo-green>nu</span><span class=nu-logo-black>shell</span></span></div><div class="nu-top-app-bar__section nu-top-app-bar__section--end"><a href=/ class="nu-top-app-bar__link h1-minor-minor"><span>home</span></a>
+<a href=/docs class="nu-top-app-bar__link h1-minor-minor"><span>docs</span></a>
+<a href=https://github.com/nushell/nushell class="nu-top-app-bar__link h1-minor-minor"><span>github</span></a></div></div></header><main class=nu-content><h2>to-tsv</h2><p>Converts table data into tsv text.</p><h2 id=example>Example</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; shells
+━━━┯━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━
+ <span style=color:#75715e># │   │ name       │ path</span>
+───┼───┼────────────┼────────────────────────
+ <span style=color:#ae81ff>0</span> │ X │ filesystem │ /home/shaurya
+ <span style=color:#ae81ff>1</span> │   │ filesystem │ /home/shaurya/Pictures
+ <span style=color:#ae81ff>2</span> │   │ filesystem │ /home/shaurya/Desktop
+━━━┷━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━
+&gt; shells | to tsv
+ 	name	path
+X	filesystem	/home/shaurya
+
+</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>&gt; open caco3_plastics.tsv
+━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━━━━┯━━━━━━━━━━━━━━┯━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━━┯━━━━━━━━━━━┯━━━━━━━━━━━┯━━━━━━━━━━━━━━
+ <span style=color:#75715e># │ importer     │ shipper      │ tariff_item │ name         │ origin   │ shipped_at │ arrived_at │ net_weight │ fob_price │ cif_price │ cif_per_net_</span>
+   │              │              │             │              │          │            │            │            │           │           │ weight
+───┼──────────────┼──────────────┼─────────────┼──────────────┼──────────┼────────────┼────────────┼────────────┼───────────┼───────────┼──────────────
+ <span style=color:#ae81ff>0</span> │ PLASTICOS    │ S A REVERTE  │ <span style=color:#ae81ff>2509000000</span>  │ CARBONATO DE │ SPAIN    │ 18/03/2016 │ 17/04/2016 │ 81,000.00  │ 14,417.58 │ 18,252.34 │ 0.23
+   │ RIVAL CIA    │              │             │ CALCIO TIPO  │          │            │            │            │           │           │
+   │ LTDA         │              │             │ CALCIPORE    │          │            │            │            │           │           │
+   │              │              │             │ <span style=color:#ae81ff>160</span> T AL     │          │            │            │            │           │           │
+ <span style=color:#ae81ff>1</span> │ MEXICHEM     │ OMYA ANDINA  │ <span style=color:#ae81ff>2836500000</span>  │ CARBONATO    │ COLOMBIA │ 07/07/2016 │ 10/07/2016 │ 26,000.00  │ 7,072.00  │ 8,127.18  │ 0.31
+   │ ECUADOR S.A. │ S A          │             │              │          │            │            │            │           │           │
+ <span style=color:#ae81ff>2</span> │ PLASTIAZUAY  │ SA REVERTE   │ <span style=color:#ae81ff>2836500000</span>  │ CARBONATO DE │ SPAIN    │ 27/07/2016 │ 09/08/2016 │ 81,000.00  │ 8,100.00  │ 11,474.55 │ 0.14
+   │ SA           │              │             │ CALCIO       │          │            │            │            │           │           │
+ <span style=color:#ae81ff>3</span> │ PLASTICOS    │ AND          │ <span style=color:#ae81ff>2836500000</span>  │ CALCIUM      │ TURKEY   │ 04/10/2016 │ 11/11/2016 │ 100,000.00 │ 17,500.00 │ 22,533.75 │ 0.23
+   │ RIVAL CIA    │ ENDUSTRIYEL  │             │ CARBONATE    │          │            │            │            │           │           │
+   │ LTDA         │ HAMMADDELER  │             │ ANADOLU      │          │            │            │            │           │           │
+   │              │ DIS TCARET   │             │ ANDCARB CT-1 │          │            │            │            │           │           │
+   │              │ LTD.STI.     │             │              │          │            │            │            │           │           │
+ <span style=color:#ae81ff>4</span> │ QUIMICA      │ SA REVERTE   │ <span style=color:#ae81ff>2836500000</span>  │ CARBONATO DE │ SPAIN    │ 24/06/2016 │ 12/07/2016 │ 27,000.00  │ 3,258.90  │ 5,585.00  │ 0.21
+   │ COMERCIAL    │              │             │ CALCIO       │          │            │            │            │           │           │
+   │ QUIMICIAL    │              │             │              │          │            │            │            │           │           │
+   │ CIA. LTDA.   │              │             │              │          │            │            │            │           │           │
+ <span style=color:#ae81ff>5</span> │ PICA         │ OMYA ANDINA  │ <span style=color:#ae81ff>3824909999</span>  │ CARBONATO DE │ COLOMBIA │ 01/01/1900 │ 18/01/2016 │ 66,500.00  │ 12,635.00 │ 18,670.52 │ 0.28
+   │ PLASTICOS    │ S.A          │             │ CALCIO       │          │            │            │            │           │           │
+   │ INDUSTRIALES │              │             │              │          │            │            │            │           │           │
+   │ C.A.         │              │             │              │          │            │            │            │           │           │
+ <span style=color:#ae81ff>6</span> │ PLASTIQUIM   │ OMYA ANDINA  │ <span style=color:#ae81ff>3824909999</span>  │ CARBONATO DE │ COLOMBIA │ 01/01/1900 │ 25/10/2016 │ 33,000.00  │ 6,270.00  │ 9,999.00  │ 0.30
+   │ S.A.         │ S.A NIT      │             │ CALCIO       │          │            │            │            │           │           │
+   │              │ 830.027.386- │             │ RECUBIERTO   │          │            │            │            │           │           │
+   │              │ <span style=color:#ae81ff>6</span>            │             │ CON ACIDO    │          │            │            │            │           │           │
+   │              │              │             │ ESTEARICO    │          │            │            │            │           │           │
+   │              │              │             │ OMYA CARB 1T │          │            │            │            │           │           │
+   │              │              │             │ CG BBS <span style=color:#ae81ff>1000</span>  │          │            │            │            │           │           │
+ <span style=color:#ae81ff>7</span> │ QUIMICOS     │ SIBELCO      │ <span style=color:#ae81ff>3824909999</span>  │ CARBONATO DE │ COLOMBIA │ 01/11/2016 │ 03/11/2016 │ 52,000.00  │ 8,944.00  │ 13,039.05 │ 0.25
+   │ ANDINOS      │ COLOMBIA SAS │             │ CALCIO       │          │            │            │            │           │           │
+   │ QUIMANDI     │              │             │ RECUBIERTO   │          │            │            │            │           │           │
+   │ S.A.         │              │             │              │          │            │            │            │           │           │
+ <span style=color:#ae81ff>8</span> │ TIGRE        │ OMYA ANDINA  │ <span style=color:#ae81ff>3824909999</span>  │ CARBONATO DE │ COLOMBIA │ 01/01/1900 │ 28/10/2016 │ 66,000.00  │ 11,748.00 │ 18,216.00 │ 0.28
+   │ ECUADOR S.A. │ S.A NIT      │             │ CALCIO       │          │            │            │            │           │           │
+   │ ECUATIGRE    │ 830.027.386- │             │ RECUBIERTO   │          │            │            │            │           │           │
+   │              │ <span style=color:#ae81ff>6</span>            │             │ CON ACIDO    │          │            │            │            │           │           │
+   │              │              │             │ ESTEARICO    │          │            │            │            │           │           │
+   │              │              │             │ OMYACARB 1T  │          │            │            │            │           │           │
+   │              │              │             │ CG BPA <span style=color:#ae81ff>25</span> NO │          │            │            │            │           │           │
+━━━┷━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┷━━━━━━━━━━━━━┷━━━━━━━━━━━━━━┷━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━━┷━━━━━━━━━━━┷━━━━━━━━━━━┷━━━━━━━━━━━━━━
+&gt; open caco3_plastics.tsv | to tsv
+importer        shipper tariff_item     name    origin  shipped_at      arrived_at      net_weight      fob_price       cif_price       cif_per_net_weight
+PLASTICOS RIVAL CIA LTDA        S A REVERTE     <span style=color:#ae81ff>2509000000</span>      CARBONATO DE CALCIO TIPO CALCIPORE <span style=color:#ae81ff>160</span> T AL     SPAIN   18/03/2016      17/04/2016    81,000.00        14,417.58       18,252.34       0.23
+MEXICHEM ECUADOR S.A.   OMYA ANDINA S A <span style=color:#ae81ff>2836500000</span>      CARBONATO       COLOMBIA        07/07/2016      10/07/2016      26,000.00       7,072.00      8,127.18 0.31
+PLASTIAZUAY SA  SA REVERTE      <span style=color:#ae81ff>2836500000</span>      CARBONATO DE CALCIO     SPAIN   27/07/2016      09/08/2016      81,000.00       8,100.00        11,474.55      0.14
+PLASTICOS RIVAL CIA LTDA        AND ENDUSTRIYEL HAMMADDELER DIS TCARET LTD.STI. <span style=color:#ae81ff>2836500000</span>      CALCIUM CARBONATE ANADOLU ANDCARB CT-1  TURKEY  04/10/2016     11/11/2016      100,000.00      17,500.00       22,533.75       0.23
+QUIMICA COMERCIAL QUIMICIAL CIA. LTDA.  SA REVERTE      <span style=color:#ae81ff>2836500000</span>      CARBONATO DE CALCIO     SPAIN   24/06/2016      12/07/2016      27,000.00     3,258.90 5,585.00        0.21
+PICA PLASTICOS INDUSTRIALES C.A.        OMYA ANDINA S.A <span style=color:#ae81ff>3824909999</span>      CARBONATO DE CALCIO     COLOMBIA        01/01/1900      18/01/2016      66,500.00      12,635.00       18,670.52       0.28
+PLASTIQUIM S.A. OMYA ANDINA S.A NIT 830.027.386-6       <span style=color:#ae81ff>3824909999</span>      CARBONATO DE CALCIO RECUBIERTO CON ACIDO ESTEARICO OMYA CARB 1T CG BBS <span style=color:#ae81ff>1000</span>   COLOMBIA 01/01/1900      25/10/2016      33,000.00       6,270.00        9,999.00        0.30
+QUIMICOS ANDINOS QUIMANDI S.A.  SIBELCO COLOMBIA SAS    <span style=color:#ae81ff>3824909999</span>      CARBONATO DE CALCIO RECUBIERTO  COLOMBIA        01/11/2016      03/11/2016    52,000.00        8,944.00        13,039.05       0.25
+TIGRE ECUADOR S.A. ECUATIGRE    OMYA ANDINA S.A NIT 830.027.386-6       <span style=color:#ae81ff>3824909999</span>      CARBONATO DE  CALCIO RECUBIERTO CON ACIDO ESTEARICO OMYACARB 1T CG BPA <span style=color:#ae81ff>25</span> NO   COLOMBIA        01/01/1900      28/10/2016      66,000.00       11,748.00       18,216.00       0.28
+
+</code></pre></div></main></body></html>

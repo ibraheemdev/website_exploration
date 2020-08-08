@@ -1,0 +1,33 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Navigation | Nushell</title><meta name=description content="Moving around your system with Nu"><link rel=canonical href=http://example.org/docs/book/moving_around/><link rel=stylesheet href=http://example.org/sass/main.css><meta property="og:title" content="Navigation"><meta property="og:description" content="Moving around your system with Nu"><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/docs/book/moving_around/"><meta name=twitter:card content="summary"><meta name=twitter:title content="Navigation"><meta name=twitter:description content="Moving around your system with Nu"><script src=https://unpkg.com/quicklink@2.0.0/dist/quicklink.umd.js></script><script defer>quicklink.listen()</script></head><body><header class=nu-top-app-bar><div class=nu-top-app-bar__row><div class="nu-top-app-bar__section nu-top-app-bar__section--start"><span class=h1-minor><span class=nu-logo-green>nu</span><span class=nu-logo-black>shell</span></span></div><div class="nu-top-app-bar__section nu-top-app-bar__section--end"><a href=/ class="nu-top-app-bar__link h1-minor-minor"><span>home</span></a>
+<a href=/docs class="nu-top-app-bar__link h1-minor-minor"><span>docs</span></a>
+<a href=https://github.com/nushell/nushell class="nu-top-app-bar__link h1-minor-minor"><span>github</span></a></div></div></header><main class=nu-content><h2>Navigation</h2><p>Early shells allow you to move around your filesystem and run commands, and modern shells like Nu allow you to do the same. Let&rsquo;s take a look at some of the common commands you might use when interacting with your system.</p><h2 id=viewing-directory-contents>Viewing directory contents</h2><pre><code>&gt; ls
+</code></pre><p>As we&rsquo;ve seen in other chapters, <code>ls</code> is a command for viewing the contents of a path. Nu will return the contents as a table that we can use.</p><p>The <code>ls</code> command also takes an optional argument, to change what you&rsquo;d like to view. For example, we can list the files that end in &ldquo;.txt&rdquo;</p><pre><code>&gt; ls *.md
+───┬────────────────────┬──────┬─────────┬────────────
+ # │ name               │ type │ size    │ modified 
+───┼────────────────────┼──────┼─────────┼────────────
+ 0 │ CODE_OF_CONDUCT.md │ File │  3.4 KB │ 5 days ago 
+ 1 │ CONTRIBUTING.md    │ File │   886 B │ 5 days ago 
+ 2 │ README.md          │ File │ 15.0 KB │ 5 days ago 
+ 3 │ TODO.md            │ File │  1.6 KB │ 5 days ago 
+───┴────────────────────┴──────┴─────────┴────────────
+</code></pre><p>The asterisk (*) in the above optional argument &ldquo;*.md&rdquo; is sometimes called a wildcard or a glob. It lets us match anything. You could read the glob &ldquo;*.md&rdquo; as &ldquo;match any filename, so long as it ends with &lsquo;.md&rsquo; "</p><p>Nu also uses modern globs as well, which allow you access to deeper directories.</p><pre><code> ls **/*.md
+────┬───────────────────────────────────────────┬──────┬─────────┬────────────
+ #  │ name                                      │ type │ size    │ modified 
+────┼───────────────────────────────────────────┼──────┼─────────┼────────────
+  0 │ .github/ISSUE_TEMPLATE/bug_report.md      │ File │   592 B │ 5 days ago 
+  1 │ .github/ISSUE_TEMPLATE/feature_request.md │ File │   595 B │ 5 days ago 
+  2 │ CODE_OF_CONDUCT.md                        │ File │  3.4 KB │ 5 days ago 
+  3 │ CONTRIBUTING.md                           │ File │   886 B │ 5 days ago 
+  4 │ README.md                                 │ File │ 15.0 KB │ 5 days ago 
+  5 │ TODO.md                                   │ File │  1.6 KB │ 5 days ago 
+  6 │ crates/nu-source/README.md                │ File │  1.7 KB │ 5 days ago 
+  7 │ docker/packaging/README.md                │ File │  1.5 KB │ 5 days ago 
+  8 │ docs/commands/README.md                   │ File │   929 B │ 5 days ago 
+  9 │ docs/commands/alias.md                    │ File │  1.7 KB │ 5 days ago 
+ 10 │ docs/commands/append.md                   │ File │  1.4 KB │ 5 days ago
+</code></pre><p>Here we&rsquo;re looking for any file that ends with &ldquo;.md&rdquo;, and the two asterisks further say &ldquo;in any directory starting from here&rdquo;.</p><h2 id=changing-the-current-directory>Changing the current directory</h2><pre><code>&gt; cd new_directory
+</code></pre><p>To change from the current directory to a new one, we use the <code>cd</code> command. Just as in other shells, we can use either the name of the directory, or if we want to go up a directory we can use the <code>..</code> shortcut.</p><h2 id=filesystem-commands>Filesystem commands</h2><p>Nu also provides some basic filesystem commands that works cross-platform.</p><p>We can move an item from one place to another using the <code>mv</code> command:</p><pre><code>&gt; mv item location
+</code></pre><p>We can copy an item from one location to another:</p><pre><code>&gt; cp item location
+</code></pre><p>We can remove an item:</p><pre><code>&gt; rm item
+</code></pre><p>The three commands also can use the glob capabilities we saw earlier with <code>ls</code>.</p><p>Finally, we can create a new directory using the <code>mkdir</code> command:</p><pre><code>&gt; mkdir new_directory
+</code></pre></main><hr class=footer-line><div class=language-footer><a href=http://example.org/es/docs/book/moving_around/>es: Explorando en el sistema</a></div></body></html>

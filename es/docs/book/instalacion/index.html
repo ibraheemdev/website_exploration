@@ -1,0 +1,79 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Instalando Nu | Nushell</title><meta name=description content="La mejor manera actualmente para poner en marcha Nu es instalándolo a través de crates.io, descargando desde nuestra página, compilarlo desde la fuente, o jalando un contenedor preconstruido con Docker.
+Binarios Puedes descargar Nu compilado desde nuestra página. Alternativamente, si usas Homebrew para macOS, puedes instalar el binario ejecutando brew install nushell.
+Windows nota: Nu trabaja con Windows 10 y no soporta Windows 7/8.1
+Descarga el archivo actual .zip de la página de releases y extráelo por ejemplo a:"><link rel=canonical href=http://example.org/es/docs/book/instalacion/><link rel=stylesheet href=http://example.org/sass/main.css><meta property="og:title" content="Instalando Nu"><meta property="og:description" content="La mejor manera actualmente para poner en marcha Nu es instalándolo a través de crates.io, descargando desde nuestra página, compilarlo desde la fuente, o jalando un contenedor preconstruido con Docker.
+Binarios Puedes descargar Nu compilado desde nuestra página. Alternativamente, si usas Homebrew para macOS, puedes instalar el binario ejecutando brew install nushell.
+Windows nota: Nu trabaja con Windows 10 y no soporta Windows 7/8.1
+Descarga el archivo actual .zip de la página de releases y extráelo por ejemplo a:"><meta property="og:type" content="article"><meta property="og:url" content="http://example.org/es/docs/book/instalacion/"><meta name=twitter:card content="summary"><meta name=twitter:title content="Instalando Nu"><meta name=twitter:description content="La mejor manera actualmente para poner en marcha Nu es instalándolo a través de crates.io, descargando desde nuestra página, compilarlo desde la fuente, o jalando un contenedor preconstruido con Docker.
+Binarios Puedes descargar Nu compilado desde nuestra página. Alternativamente, si usas Homebrew para macOS, puedes instalar el binario ejecutando brew install nushell.
+Windows nota: Nu trabaja con Windows 10 y no soporta Windows 7/8.1
+Descarga el archivo actual .zip de la página de releases y extráelo por ejemplo a:"><script src=https://unpkg.com/quicklink@2.0.0/dist/quicklink.umd.js></script><script defer>quicklink.listen()</script></head><body><header class=nu-top-app-bar><div class=nu-top-app-bar__row><div class="nu-top-app-bar__section nu-top-app-bar__section--start"><span class=h1-minor><span class=nu-logo-green>nu</span><span class=nu-logo-black>shell</span></span></div><div class="nu-top-app-bar__section nu-top-app-bar__section--end"><a href=/es class="nu-top-app-bar__link h1-minor-minor"><span>home</span></a>
+<a href=/es/docs class="nu-top-app-bar__link h1-minor-minor"><span>docs</span></a>
+<a href=https://github.com/nushell/nushell class="nu-top-app-bar__link h1-minor-minor"><span>github</span></a></div></div></header><main class=nu-content><h2>Instalando Nu</h2><p>La mejor manera actualmente para poner en marcha Nu es instalándolo a través de <a href=https://crates.io>crates.io</a>, descargando desde <a href=https://github.com/nushell/nushell/releases>nuestra página</a>, compilarlo desde la fuente, o jalando un contenedor preconstruido con Docker.</p><h2 id=binarios>Binarios</h2><p>Puedes descargar Nu compilado desde <a href=https://github.com/nushell/nushell/releases>nuestra página</a>. Alternativamente, si usas <a href=https://brew.sh/>Homebrew</a> para macOS, puedes instalar el binario ejecutando <code>brew install nushell</code>.</p><h3 id=windows>Windows</h3><p><strong>nota:</strong> Nu trabaja con Windows 10 y no soporta Windows 7/8.1</p><p>Descarga el archivo actual <code>.zip</code> <a href=https://github.com/nushell/nushell/releases>de la página de releases</a> y extráelo por ejemplo a:</p><pre><code> C:\Program Files
+</code></pre><p>y posteriormente agrega Nu a la variable de entorno <code>PATH</code>. Una vez que hagamos eso, podemos ejecutar Nu usando el comando <code>nu</code>:</p><pre><code> &gt; nu
+ C:\Users\user&gt;
+</code></pre><p>Si te encuentras usando la nueva <a href=https://github.com/microsoft/terminal>Windows Terminal</a> puedes establecer <code>nu</code> como la shell por defecto añadiendo:</p><pre><code>            {
+            &quot;guid&quot;: &quot;{2b372ca1-1ee2-403d-a839-6d63077ad871}&quot;,
+            &quot;hidden&quot;: false,
+            &quot;name&quot;: &quot;Nu Shell&quot;,
+            &quot;commandline&quot;: &quot;nu.exe&quot;
+            }
+</code></pre><p>a <code>"profiles"</code> en las preferencias de tu Terminal (archivo JSON). Lo último que tienes que hacer es cambiar <code>"defaultProfile"</code> a:</p><pre><code>&quot;defaultProfile&quot;: &quot;{2b372ca1-1ee2-403d-a839-6d63077ad871}&quot;,
+</code></pre><p>Ahora <code>nu</code> debería cargar al inicio de la Terminal de Windows.</p><h2 id=contenedores-de-docker-preconstruidos>Contenedores de Docker preconstruidos</h2><p>Si deseas jalar un contenedor preconstruido, puedes navegar las etiquetas de la <a href=https://quay.io/organization/nushell>organización nushell</a>
+en Quay.io. Jalar un contenedor se reduce a:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker pull quay.io/nushell/nu
+$ docker pull quay.io/nushell/nu-base
+</code></pre></div><p>Tanto &ldquo;nu-base&rdquo; y &ldquo;nu&rdquo; proporciona el binario <code>nu</code>, sin embargo nu-base también incluye el código fuente en <code>/code</code> en el contenedor y todas las dependencias.</p><p>Opcionalmente, también puedes construir los contenedores localmente utilizando los <a href=https://github.com/nushell/nushell/tree/master/docker>dockerfiles proporcionados</a>:
+Para construir la imagen base:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker build -f docker/Dockerfile.nu-base -t nushell/nu-base .
+</code></pre></div><p>y luego para construir el contenedor más pequeño (usando una construcción de varias etapas):</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker build -f docker/Dockerfile -t nushell/nu .
+</code></pre></div><p>De cualquier manera, se puede ejecutar cualquier contenedor de la siguiente manera:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker run -it nushell/nu-base
+$ docker run -it nushell/nu
+/&gt; exit
+</code></pre></div><p>El segundo contenedor es un poco más pequeño, si tamaño es importante para ti.</p><h2 id=preparación>Preparación</h2><p>Antes de que podamos instalar Nu, necesitamos asegurarnos de que nuestro sistema tenga los requerimientos necesarios. Actualmente significa que debemos verificar tener instalado tanto el Rust toolchain así como las dependencias locales. Estás son las suites de compilación recomendadas:</p><ul><li>Linux: GCC or Clang</li><li>macOS: Clang (install Xcode)</li><li>Windows: <a href=https://visualstudio.microsoft.com/vs/community/>Visual Studio Community Edition</a></li></ul><p>Para Linux y macOS, una vez que hayas instalado la suite de compilación, todo estará listo para instalar Rust a través de <code>rustup</code> (ver más abajo).</p><p>For Windows, when you install Visual Studio Community Edition, make sure to install the &ldquo;C++ build tools&rdquo; as what we need is <code>link.exe</code> which is provided as part of that optional install. With that, we&rsquo;re ready to move to the next step.</p><p>Para Windows, cuando instalas Visual Studio Community Edition, asegúrate de instalar las herramientas &ldquo;C++ build tools&rdquo; ya que lo que necesitamos es <code>link.exe</code>, que es proporcionado como parte de esa instalación optcional. Con eso, estamos listos para el siguiente paso.</p><h3 id=instalando-un-suite-de-compilación>Instalando un suite de compilación</h3><p>Para que Rust funcione correctamente, necesitarás tener un suite de compilación compatible instalado en el sistema.</p><h3 id=instalando-rust>Instalando Rust</h3><p>En el caso de que no dispongamos de Rust en nuestro sistema la mejor manera de instalarlo es mediante <a href=https://rustup.rs/>rustup</a>. Rustup es una manera de manejar instalaciones de Rust incluyendo distintas versiones de Rust.</p><p>Nu actualmente requiere la versión <strong>estable más reciente (1.39 o posterior)</strong> de Rust. La mejor manera de <code>rustup</code> inferir la versión correcta para ti. En el momento de abrir <code>rustup</code> te solicitará qué versión de Rust deseas instalar:</p><pre><code>Current installation options:
+
+   default host triple: x86_64-unknown-linux-gnu
+     default toolchain: stable
+  modify PATH variable: yes
+
+1) Proceed with installation (default)
+2) Customize installation
+3) Cancel installation
+</code></pre><p>Una vez que estamos listos, presionamos 1 y luego enter.</p><p>Si prefieres no instalar Rust mediante <code>rustup</code>, también puedes instalar a través de otros métodos (Ej. un paquete en alguna distribución de Linux). Solo asegúrate de instalar una versión que sea Rust 1.39 o posterior.</p><h2 id=dependencias>Dependencias</h2><h3 id=debianubuntu>Debian/Ubuntu</h3><p>Vas a necesitar instalar &ldquo;pkg-config&rdquo; y &ldquo;libssl-dev&rdquo;:</p><pre><code>apt install pkg-config libssl-dev
+</code></pre><p>Usuarios de Linux que desean usar las funcionalidades opcionales <code>rawkey</code> o <code>clipboard</code> necesitarán instalar los paquetes &ldquo;libx11-dev&rdquo; y &ldquo;libxcb-composite0-dev&rdquo;:</p><pre><code>apt install libxcb-composite0-dev libx11-dev
+</code></pre><h3 id=macos>macOS</h3><p>Usando <a href=https://brew.sh/>homebrew</a>, vas a necesitar instalar la fórmula &ldquo;openssl&rdquo;:</p><pre><code>brew install openssl cmake
+</code></pre><h2 id=instalando-desde-cratesiohttpscratesio>Instalando desde <a href=https://crates.io>crates.io</a></h2><p>Una vez instaladas las depependencias que Nu necesita, podemos instalarla usando el comando <code>cargo</code> que viene con el compilador Rust.</p><pre><code>&gt; cargo install nu
+</code></pre><p>¡Eso es todo! Cargo hará el trabajo de descarga Nu junto con sus dependencias, construirla e instalarla en el bin path de cargo para que podamos arrancarlo.</p><p>Si deseas instalar con más funcionalidades, puedes hacer:</p><pre><code>&gt; cargo install nu --features=stable
+</code></pre><p>Para todas las funcionalidades disponibles, la manera más fácil es descargar la fuente de Nu y construírlo usted mismo usando las herramientas de Rust:</p><pre><code>&gt; git clone https://github.com/nushell/nushell.git
+&gt; cd nushell
+nushell&gt; cargo install --path . --force --features=stable
+
+Para que esto funcione, asegúrate de tener todas las dependencias instaladas (que se muestran arriba) en el sistema.
+
+Finalizada la instalación podemos ejecutar Nu usando el comando `nu`:
+
+</code></pre><p>$ nu
+/home/jonathan/Source></p><pre><code>
+## Construyendo desde la fuente
+
+También podemos contruir nuestro propio Nu directamente desde github. Esto nos da acceso inmediato a las últimas funcionalidades y corrección de bugs.
+
+</code></pre><blockquote><p>git clone <a href=https://github.com/nushell/nushell.git>https://github.com/nushell/nushell.git</a></p></blockquote><pre><code>
+Git nos clonará el repositorio principal de Nu. Partiendo de ahí podemos contruir y arrancar Nu si estamos usando `rustup` con:
+
+</code></pre><blockquote><p>cd nushell
+nushell> cargo build &ndash;workspace &ndash;features=stable && cargo run &ndash;features=stable</p></blockquote><pre><code>
+También puedes construir y arrancar Nu en modo release:
+
+</code></pre><p>nushell> cargo build &ndash;release &ndash;workspace &ndash;features=stable && cargo run &ndash;release &ndash;features=stable</p><pre><code>Gente familiarizada con Rust se preguntará la razón por la que hacemos un paso &quot;build&quot; y otro paso &quot;run&quot; si &quot;run&quot; construye por defecto. Esto es para evitar una deficiencia de la nueva opción `default-run` en Cargo y asegurar que todos los plugins se construyan aunque puede que esto no sea necesario en el futuro.
+
+**Nota:** Si te encuentras trabajando tanto en modo debug y release, asegúrate de ejecutar `cargo clean` cuando cambies entre ellas. Nu buscará plugins en los directorios tanto de debug así como release y puede suceder que cargue versiones de un plugin que no tienes intenciones de usar.
+
+## Establecer como shell de inicio de sesión
+
+**!!! Nu todavía está en desarrollo y puede no ser estable para uso diario. !!!**
+
+Para configurar la shell de inicio de sesión, puedes usra el comando [`chsh`](https://linux.die.net/man/1/chsh).
+En algunas distribuciones de Linux se encuentra una lista válida de shells en `/etc/shells` y no permitirá cambiar la shell hasta que Nu esté en la lista blanca. Es posible que vea un error similar al siguiente si no ha actualizado el archivo `shells`:
+
+</code></pre><p>chsh: /home/username/.cargo/bin/nu is an invalid shell</p><pre><code>
+Puedes agregar Nu a la lista de shells válidas añadiendo el binario al archivo `shells`. La ruta para agregar puedes encontrarla con el comando `which nu`, usualmente es `$HOME/.cargo/bin/nu`.
+</code></pre></main></body></html>
